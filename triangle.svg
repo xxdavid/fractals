@@ -1,0 +1,45 @@
+<svg version="1.1"
+ width="100" height="87"
+ xmlns="http://www.w3.org/2000/svg">
+	<polygon points="0,87 100,87 50,0" style="fill:blue;stroke:black;stroke-width:0" />
+	<polygon points="50.0,87.0 75.0,43.5 25.0,43.5" style="fill:orange;stroke:black;stroke-width:0" />
+	<polygon points="25.0,87.0 37.5,65.25 12.5,65.25" style="fill:red;stroke:black;stroke-width:0" />
+	<polygon points="12.5,87.0 18.75,76.125 6.25,76.125" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="6.25,87.0 9.375,81.5625 3.125,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="18.75,87.0 15.625,81.5625 21.875,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="15.625,70.6875 12.5,76.125 9.375,70.6875" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="37.5,87.0 31.25,76.125 43.75,76.125" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="43.75,87.0 40.625,81.5625 46.875,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="31.25,87.0 34.375,81.5625 28.125,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="34.375,70.6875 37.5,76.125 40.625,70.6875" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="31.25,54.375 25.0,65.25 18.75,54.375" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="28.125,48.9375 25.0,54.375 21.875,48.9375" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="34.375,59.8125 28.125,59.8125 31.25,65.25" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="18.75,65.25 21.875,59.8125 15.625,59.8125" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="75.0,87.0 62.5,65.25 87.5,65.25" style="fill:red;stroke:black;stroke-width:0" />
+	<polygon points="87.5,87.0 81.25,76.125 93.75,76.125" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="93.75,87.0 90.625,81.5625 96.875,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="81.25,87.0 84.375,81.5625 78.125,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="84.375,70.6875 87.5,76.125 90.625,70.6875" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="62.5,87.0 68.75,76.125 56.25,76.125" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="56.25,87.0 59.375,81.5625 53.125,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="68.75,87.0 65.625,81.5625 71.875,81.5625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="65.625,70.6875 62.5,76.125 59.375,70.6875" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="68.75,54.375 75.0,65.25 81.25,54.375" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="71.875,48.9375 75.0,54.375 78.125,48.9375" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="65.625,59.8125 71.875,59.8125 68.75,65.25" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="81.25,65.25 78.125,59.8125 84.375,59.8125" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="62.5,21.75 50.0,43.5 37.5,21.75" style="fill:red;stroke:black;stroke-width:0" />
+	<polygon points="56.25,10.875 50.0,21.75 43.75,10.875" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="53.125,5.4375 50.0,10.875 46.875,5.4375" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="59.375,16.3125 53.125,16.3125 56.25,21.75" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="43.75,21.75 46.875,16.3125 40.625,16.3125" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="68.75,32.625 56.25,32.625 62.5,43.5" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="71.875,38.0625 65.625,38.0625 68.75,43.5" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="65.625,27.1875 62.5,32.625 59.375,27.1875" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="53.125,38.0625 59.375,38.0625 56.25,43.5" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="37.5,43.5 43.75,32.625 31.25,32.625" style="fill:yellow;stroke:black;stroke-width:0" />
+	<polygon points="31.25,43.5 34.375,38.0625 28.125,38.0625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="43.75,43.5 40.625,38.0625 46.875,38.0625" style="fill:pink;stroke:black;stroke-width:0" />
+	<polygon points="40.625,27.1875 37.5,32.625 34.375,27.1875" style="fill:pink;stroke:black;stroke-width:0" />
+</svg>
