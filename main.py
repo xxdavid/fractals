@@ -1,16 +1,38 @@
+from abc import ABC
+
 from svg import SVG, Point
 
 
-class SierpinskiTriangle:
+class Fractal(ABC):
     def __init__(self, depth: int):
         self.depth = depth
-        self.svg = SVG(100, 87)
+        self.svg = SVG(self.width, self.height)
+
+    @property
+    def width(self):
+        return 100
+
+    @property
+    def height(self):
+        return 100
+
+    def __str__(self):
+        return self.svg.__str__()
+
+
+class SierpinskiTriangle(Fractal):
+    def __init__(self, depth: int):
+        super().__init__(depth)
         self.colors = ["orange", "red", "yellow", "pink"]
         base_triangle = [Point(0, 87), Point(100, 87), Point(50, 0)]
         self.svg.polygon(*base_triangle, fill="blue")
         self.triangle(*base_triangle, depth=0)
 
-    def triangle(self, p1: Point, p2: Point, p3: Point, depth):
+    @property
+    def height(self):
+        return 87
+
+    def triangle(self, p1: Point, p2: Point, p3: Point, depth: int):
         if depth == self.depth:
             return
 
@@ -24,14 +46,10 @@ class SierpinskiTriangle:
         self.triangle(p2, sub1, sub2, depth + 1)
         self.triangle(p3, sub2, sub3, depth + 1)
 
-    def __str__(self):
-        return self.svg.__str__()
 
-
-class SierpinskiCarpet:
+class SierpinskiCarpet(Fractal):
     def __init__(self, depth: int):
-        self.depth = depth
-        self.svg = SVG(100, 100)
+        super().__init__(depth)
         self.colors = ["#F2D1B3", "#F2E77E", "#DA7698", "#E3A7C0"]
         self.svg.square(Point(0, 0), Point(100, 100), '#4C9385')
         self.square(Point(0, 0), Point(100, 100), 0)
@@ -53,9 +71,6 @@ class SierpinskiCarpet:
                     self.svg.square(sub_top_left, sub_bottom_right, self.colors[depth])
                 else:
                     self.square(sub_top_left, sub_bottom_right, depth + 1)
-
-    def __str__(self):
-        return self.svg.__str__()
 
 
 if __name__ == '__main__':
