@@ -50,8 +50,8 @@ class SierpinskiTriangle(Fractal):
 class SierpinskiCarpet(Fractal):
     def __init__(self, depth: int):
         super().__init__(depth)
-        self.colors = ["#F2D1B3", "#F2E77E", "#DA7698", "#E3A7C0"]
-        self.svg.square(Point(0, 0), Point(100, 100), '#4C9385')
+        self.colors = ["#9c546c", "#ae5e79", "#DA7698", "#E3A7C0"]
+        self.svg.square(Point(0, 0), Point(100, 100), '#ffe8ff')
         self.square(Point(0, 0), Point(100, 100), 0)
 
     def square(self, top_left: Point, bottom_right: Point, depth):
