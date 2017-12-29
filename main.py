@@ -74,10 +74,41 @@ class SierpinskiCarpet(Fractal):
                     self.square(sub_top_left, sub_bottom_right, depth + 1)
 
 
+class BoxFractal(Fractal):
+    def __init__(self, depth: int, color_shift=0):
+        super().__init__(depth)
+        self.svg.square(Point(0, 0), Point(100, 100), 'white')
+        self.color_shift = color_shift
+        self.square(Point(0, 0), Point(100, 100), 0)
+
+    def square(self, top_left: Point, bottom_right: Point, depth):
+        if depth == self.depth:
+            color = "#%06x" % int(
+                0xFFFFFF
+                / (top_left.x + top_left.y + .001 + self.color_shift)
+                * (top_left.y + self.color_shift)
+            )
+            self.svg.square(top_left, bottom_right, fill=color)
+            return
+
+        sub_width = (bottom_right.x - top_left.x) / 3
+        sub_height = (bottom_right.y - top_left.y) / 3
+        for i in range(0, 3):
+            for j in range(0, 3):
+                sub_top_left = Point(top_left.x + sub_width * j, top_left.y + sub_height * i)
+                sub_bottom_right = Point(
+                    sub_top_left.x + sub_width,
+                    sub_top_left.y + sub_height
+                )
+                if (i + j) % 2 == 0:
+                    self.square(sub_top_left, sub_bottom_right, depth + 1)
+
+
 if __name__ == '__main__':
     fractals = {
         "triangle": SierpinskiTriangle(4),
-        "carpet": SierpinskiCarpet(4)
+        "carpet": SierpinskiCarpet(4),
+        "box": BoxFractal(4, 1),
     }
 
     for name, fractal in fractals.items():
