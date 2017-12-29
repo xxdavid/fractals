@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from abc import ABC
+from math import sqrt, sin, cos, fabs, pi
 
 from svg import SVG, Point
 
@@ -104,11 +105,45 @@ class BoxFractal(Fractal):
                     self.square(sub_top_left, sub_bottom_right, depth + 1)
 
 
+class CrossFractal(Fractal):
+    def __init__(self, depth: int, color_shift=1):
+        super().__init__(depth)
+        self.color_shift = color_shift
+        self.svg.square(Point(0, 0), Point(self.width, self.height), '#212121')
+        self.cross(Point(0, 0), Point(self.width, self.height), 0)
+
+    def cross(self, top_left: Point, bottom_right: Point, depth):
+        if depth == self.depth:
+            size = bottom_right.x - top_left.x
+            center = Point(top_left.x + size / 2, top_left.y + size / 2)
+            distance = sqrt(
+                (self.width / 2 - center.x) ** 2
+                + (self.height / 2 - center.y) ** 2
+            )
+            color = "#%06x" % int(0xFFFFFF * fabs(cos(distance * self.color_shift)))
+            self.svg.square(top_left, bottom_right, fill=color)
+            return
+
+        sub_width = (bottom_right.x - top_left.x) / 3
+        sub_height = (bottom_right.y - top_left.y) / 3
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if ((i + j) % 2 == 1) or (i == 1 and j == 1):
+                    sub_top_left = Point(top_left.x + sub_width * j, top_left.y + sub_height * i)
+                    sub_bottom_right = Point(
+                        sub_top_left.x + sub_width,
+                        sub_top_left.y + sub_height
+                    )
+
+                    self.cross(sub_top_left, sub_bottom_right, depth + 1)
+
+
 if __name__ == '__main__':
     fractals = {
         "triangle": SierpinskiTriangle(4),
         "carpet": SierpinskiCarpet(4),
         "box": BoxFractal(4, 1),
+        "cross": CrossFractal(4, 16),
     }
 
     for name, fractal in fractals.items():
