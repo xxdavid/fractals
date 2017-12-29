@@ -138,12 +138,35 @@ class CrossFractal(Fractal):
                     self.cross(sub_top_left, sub_bottom_right, depth + 1)
 
 
+class CircleFractal(Fractal):
+    def __init__(self, depth: int):
+        super().__init__(depth)
+        self.colors = ['#073a60', '#fea3a0', '#49224d', '#015a6c', '#ffe8ff']
+        # https://en.wikipedia.org/wiki/Circle_packing_in_a_circle
+        self.radius_denominator = 1 + sqrt(2)
+        self.circle(Point(50, 50), 50, 0)
+
+    def circle(self, center: Point, radius: float, depth: int):
+        if depth == self.depth:
+            return
+
+        self.svg.circle(center, radius, self.colors[depth])
+
+        new_r = radius / self.radius_denominator
+
+        self.circle(Point(center.x, center.y + radius - new_r), new_r, depth + 1)
+        self.circle(Point(center.x, center.y - radius + new_r), new_r, depth + 1)
+        self.circle(Point(center.x + radius - new_r, center.y), new_r, depth + 1)
+        self.circle(Point(center.x - radius + new_r, center.y), new_r, depth + 1)
+
+
 if __name__ == '__main__':
     fractals = {
         "triangle": SierpinskiTriangle(4),
         "carpet": SierpinskiCarpet(4),
         "box": BoxFractal(4, 1),
         "cross": CrossFractal(4, 16),
+        "circle": CircleFractal(5),
     }
 
     for name, fractal in fractals.items():

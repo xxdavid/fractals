@@ -34,5 +34,8 @@ class SVG:
             fill=fill
         )
 
+    def circle(self, center: Point, radius: float, fill: str):
+        self.write(f'<circle cx="{center.x}" cy="{center.y}" r="{radius}" fill="{fill}" />"')
+
     def __str__(self):
         return self.header + self.content + self.footer
