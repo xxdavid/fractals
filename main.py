@@ -160,6 +160,50 @@ class CircleFractal(Fractal):
         self.circle(Point(center.x - radius + new_r, center.y), new_r, depth + 1)
 
 
+class ChristmasTree(Fractal):
+    @property
+    def width(self):
+        return 500
+
+    @property
+    def height(self):
+        return 500
+
+    def __init__(self, depth: int):
+        super().__init__(depth)
+        self.number_of_branches = 6
+        self.margin = self.height / 10
+        self.tree(
+            Point(self.width / 2, self.height - self.margin),
+            self.height - 2 * self.margin,
+            pi / 2, 0
+        )
+
+    def tree(self, root: Point, length: float, angle: float, depth: int):
+        self.svg.line_angle(root, length, angle, 'brown')
+        peak = Point(
+            root.x - cos(angle) * length,
+            root.y - sin(angle) * length
+        )
+        if depth != self.depth:
+            self.tree(peak, length / 10, angle, depth + 1)
+
+        for i in range(0, self.number_of_branches):
+            branch_length = length / 2.0 / self.number_of_branches \
+                            * (self.number_of_branches - i)
+
+            factor = (((i + 1) / (self.number_of_branches + .35)) ** .7)
+            x = root.x + ((peak.x - root.x) * factor)
+            y = root.y + ((peak.y - root.y) * factor)
+
+            if depth == self.depth:
+                self.svg.line_angle(Point(x, y), branch_length, angle - 4 * pi / 3, 'green')
+                self.svg.line_angle(Point(x, y), branch_length, angle + 4 * pi / 3, 'green')
+            else:
+                self.tree(Point(x, y), branch_length, angle - 4 * pi / 3, depth + 1)
+                self.tree(Point(x, y), branch_length, angle + 4 * pi / 3, depth + 1)
+
+
 if __name__ == '__main__':
     fractals = {
         "triangle": SierpinskiTriangle(4),
@@ -167,6 +211,7 @@ if __name__ == '__main__':
         "box": BoxFractal(4, 1),
         "cross": CrossFractal(4, 16),
         "circle": CircleFractal(5),
+        "tree": ChristmasTree(3),
     }
 
     for name, fractal in fractals.items():

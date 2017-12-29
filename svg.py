@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+from math import cos, sin
+
 Point = namedtuple("Point", ["x", "y"])
 
 
@@ -14,11 +16,17 @@ class SVG:
     def write(self, text):
         self.content += f"\t{text}\n"
 
-    def line(self, p1: Point, p2: Point):
+    def line(self, p1: Point, p2: Point, color: str = 'black', width: float = 1.0):
         self.write(f'<line x1="{p1.x}" y1="{p1.y}" x2="{p2.x}" y2="{p2.y}"'
-                   f' style="stroke:rgb(0,0,0);stroke-width:2" />')
+                   f' stroke="{color}" stroke-width="{width}" />')
 
-    def polygon(self, *points: Point, fill: str = "black"):
+    def line_angle(self, p1: Point, length: float, angle: float,
+                   color: str = 'black', width: float = 1.0):
+        x2 = cos(angle) * length
+        y2 = sin(angle) * length
+        self.line(p1, Point(p1.x - x2, p1.y - y2), color, width)
+
+    def polygon(self, *points: Point, fill: str="black"):
         points_str = " ".join([f'{p.x},{p.y}' for p in points])
 
         self.write(f'<polygon points="{points_str}"'
